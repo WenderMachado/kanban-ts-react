@@ -1,5 +1,6 @@
-import { PlusIcon } from "@radix-ui/react-icons"
-import { Box, Button, Flex, Heading } from "@radix-ui/themes"
+
+import { Box, Flex, Heading } from "@radix-ui/themes"
+import { CreateTaskForm } from "./components/CreateTaskForm"
 
 function App() {
 
@@ -9,9 +10,7 @@ function App() {
       <Box height="4rem">
         <Flex align= "center" gap="4" height="100%">
           <Heading as="h1" size="8" weight="light">React Kanban</Heading>
-          <Button> 
-            <PlusIcon/>Nova Tarefa
-          </Button>
+          <CreateTaskForm/>
         </Flex>
       </Box>
 
