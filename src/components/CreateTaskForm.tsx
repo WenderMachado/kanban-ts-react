@@ -1,7 +1,30 @@
 import { PlusIcon } from "@radix-ui/react-icons"
-import { Box, Button, Dialog, Flex, RadioGroup, Text, TextArea, TextField } from "@radix-ui/themes"
+import { Badge, Box, Button, Dialog, Flex, RadioGroup, Text, TextArea, TextField } from "@radix-ui/themes"
+import type {  FormEventHandler } from "react"
+import z from "zod"
+
+const CreateTaskSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  status: z.enum(["todo", "doing", "done"]),
+  priority: z.enum(["low", "medium", "high"])
+})
 
 export const CreateTaskForm: React.FC = () =>{
+  const handleSubmit: FormEventHandler<HTMLFormElement> =  async (ev) =>{
+      ev.preventDefault()
+      const formData = new FormData(ev.currentTarget)
+
+      const title = formData.get("title")
+      const description = formData.get("description")
+      const status = formData.get("status")
+      const priority = formData.get("priority")
+
+
+      ev.currentTarget.reset()
+      const taskData = CreateTaskSchema.parse({title, description, status, priority})
+      alert(JSON.stringify(taskData))
+  }
   return (
   <Dialog.Root>
       <Dialog.Trigger>
@@ -12,7 +35,7 @@ export const CreateTaskForm: React.FC = () =>{
      <Dialog.Content maxWidth="32rem">
       <Dialog.Title>Nova Tarefa</Dialog.Title>
       <Dialog.Description size={"2"} mb={"4"}>Adicione novas tarefas ao quadro.</Dialog.Description>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Flex direction="column" gap="4">
 
             <Box maxWidth="32rem">
@@ -28,36 +51,44 @@ export const CreateTaskForm: React.FC = () =>{
               </Box>
               <TextArea placeholder="Defina uma descrição" name="description" id="description" required></TextArea>
             </Box>
+
               <Flex gap="8">
                 <Box>
                   <Text as="div" mb={"2"}>Situação</Text>
                   <RadioGroup.Root name="status" defaultValue="todo">
                     <RadioGroup.Item value="todo">
-                      Para Fazer
+                        <Badge color="gray">
+                        Para Fazer
+                        </Badge>
                     </RadioGroup.Item>
                       <RadioGroup.Item value="doing">
-                     Em progresso
+                        <Badge color="yellow">
+                          Em progresso
+                        </Badge>
                     </RadioGroup.Item>
                       <RadioGroup.Item value="done">
-                      Concluida
+                       <Badge color="green">Concluida</Badge>
                     </RadioGroup.Item>
                   </RadioGroup.Root>
                 </Box>
+
                 <Box>
                   <Text as="div" mb={"2"}>Prioridade</Text>
                   <RadioGroup.Root name="priority" defaultValue="low">
                     <RadioGroup.Item value="low">
-                      Baixa
+                      <Badge color="sky">Baixa</Badge>
                     </RadioGroup.Item>
                       <RadioGroup.Item value="medium">
-                     Média
+                       <Badge color="amber"> Média</Badge>
                     </RadioGroup.Item>
                       <RadioGroup.Item value="High">
-                      Alta
+                        <Badge color="tomato">Alta</Badge>
                     </RadioGroup.Item>
                   </RadioGroup.Root>
                 </Box>
+
               </Flex>
+
             <Flex gap="4" justify={"end"}>
               <Dialog.Close>
                 <Button color="gray" variant="soft">Cancelar</Button>
