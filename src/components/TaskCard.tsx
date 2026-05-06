@@ -9,14 +9,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({task})=>{
       const getActionText = (status: TaskStatus) =>{
         const actionsTexts = {
           "todo": "iniciar",
-          "doing": "Conclir",
+          "doing": "Concluir",
           "done": "Arquivar"
         }
         return actionsTexts[status]
       }
 
       const getActionColor = (status: TaskStatus) => {
-        const actionColors: { [key: string]: "indigo" | "green" | "bronze" } = {
+        const actionColors: { [key: string]: "indigo" |   "green" | "bronze" } = {
           "todo": "indigo",
           "doing": "green",
           "done": "bronze"

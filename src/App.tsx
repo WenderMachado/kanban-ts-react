@@ -2,11 +2,15 @@
 import { Box, Flex, Heading } from "@radix-ui/themes"
 import { CreateTaskForm } from "./components/CreateTaskForm"
 import { TaskBoard } from "./components/TaskBoard"
+import { TaskContextProvider } from "./contexts/TasksContext"
 
 function App() {
 
 
   return (
+    <TaskContextProvider>
+
+
     <Box maxWidth= "80-rem" mx="auto">
       <Box height="4rem">
         <Flex align= "center" gap="4" height="100%">
@@ -21,6 +25,7 @@ function App() {
       </Box>
 
     </Box>
+  </TaskContextProvider>
   )
 }
 

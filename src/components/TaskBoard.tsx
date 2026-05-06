@@ -1,17 +1,11 @@
 import { Badge, Flex, Grid, ScrollArea } from "@radix-ui/themes"
 import { TaskCard } from "./TaskCard"
 import type { Task } from "../entities/task"
-import { useEffect, useState } from "react"
-import { taskServices } from "../services/api"
+import { useTasks } from "../hooks/useTasks"
 
 export const TaskBoard: React.FC = () =>{
-  const [tasks, setTasks] = useState<Task[]>([])
+    const {tasks} = useTasks()
 
-  useEffect(()=>{
-    taskServices.fetchTasks().then((storedTasks)=>{
-      setTasks(storedTasks)
-    })
-  })
   const tasksTodo: Task[] = tasks.filter(task => task.status === "todo") ?? []
   const tasksInProgress: Task[] = tasks.filter(task => task.status === "doing") ?? []
   const tasksDone: Task[] = tasks.filter(task => task.status === "done") ?? []
