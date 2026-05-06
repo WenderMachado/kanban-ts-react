@@ -1,20 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Enviar relatório",
-      "description": "Enviar o relatório mensal para o departamento financeiro.",
-      "status": "doing",
-      "priority": "high"
-    },
-    {
-      "id": "2",
-      "title": "Reunião com a equipe",
-      "description": "Reunião para discutir o progresso do projeto e próximos passos.",
-      "status": "todo",
-      "priority": "high"
-    },
-    {
       "id": "3",
       "title": "Atualizar o site",
       "description": "Fazer atualizações no site da empresa com novas informações.",
@@ -22,26 +8,40 @@
       "priority": "medium"
     },
     {
-      "id": "4",
-      "title": "Implementar testes",
-      "description": "Desenvolver os testes automatizados na nova funcionalidade do aplicativo.",
-      "status": "todo",
-      "priority": "medium"
-    },
-    {
-      "title": "aaaaaaaaaaaa",
-      "description": "aaaaaaaaaaaaaaa",
+      "title": "asdas",
+      "description": "asdasd",
       "status": "done",
       "priority": "low",
-      "id": "KFBPXqhWuUM"
+      "id": "xRaCNqlDjFk"
     },
     {
       "title": "asdasd",
       "description": "asdsad",
+      "status": "doing",
+      "priority": "low",
+      "id": "KBXu3hK3L_s"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaa",
+      "status": "doing",
+      "priority": "low",
+      "id": "bb_1MP8ImuA"
+    },
+    {
+      "title": "teste",
+      "description": "12341",
       "status": "done",
       "priority": "low",
-      "id": "9nBivfhrBeE"
+      "id": "5MzAqIYBdZk"
+    },
+    {
+      "title": "232",
+      "description": "2323",
+      "status": "todo",
+      "priority": "low",
+      "id": "UhiVHyE2Mio"
     }
-  ]
-  
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
